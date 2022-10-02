@@ -55,7 +55,7 @@ dkms.conf
 #Test files:
 prueba.c
 #Compiled files:
-prueba
-semaforos
+client
+server
 
 
