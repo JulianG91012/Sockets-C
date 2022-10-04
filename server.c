@@ -26,12 +26,13 @@ int main()
 	//Se acepta la conexión del cliente, de cualquier dirección IP
 	new_socket = accept(server_fd, (struct sockaddr *)NULL, NULL);
 
-	// while(1)
-	// {
+
+	while(1)
+	{
 		//Se lee el mensaje que envia el cliente
-	val_read = read(new_socket, buffer, 1024); //Se lee el mensaje del cliente
-	printf("%s\n", buffer);
-	// }
+		val_read = read(new_socket, buffer, 1024); 
+		printf("%s\n", buffer);
+	}
 
 	return 0;
 
