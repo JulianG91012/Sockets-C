@@ -9,7 +9,7 @@ int main()
 {
     int sock;
     struct sockaddr_in serv_addr;
-    char *hello = "Hola, enviando desde el Cliente";
+    char *hello = "Mensaje del Cliente: ";
     char buf[128];
 
     //Se crea el socket del cliente
@@ -24,20 +24,19 @@ int main()
     //
     if(connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0 )
     {
-        printf("Error en la conexxión");
+        printf("Error en la conexión");
         return -1;
     }
 
     // send(sock, hello, strlen(hello), 0);    
     // printf("Mensaje hola enviado \n");
     
-    // while(1)
-    // {
+    while(1)
+    {
         //Se lee mensaje escrito y se envía
-        //fgets(buf, 128, stdin);
-    send(sock, buf, strlen(buf), 0);
-    printf("Mensaje Hola enviado \n");
-    // }
+        fgets(buf, 128, stdin);
+        send(sock, buf, strlen(buf), 0);
+    }
 
 
     return 0;
