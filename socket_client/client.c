@@ -10,7 +10,7 @@ int main()
     int sock;
     struct sockaddr_in serv_addr;
     char *hello = "Mensaje del Cliente: ";
-    char buf[128];
+    char buf[512];
 
     //Se crea el socket del cliente
     sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -28,8 +28,8 @@ int main()
         return -1;
     }
 
-    // send(sock, hello, strlen(hello), 0);    
-    // printf("Mensaje hola enviado \n");
+    send(sock, hello, strlen(hello), 0);    
+    printf("Mensaje enviado \n");
     
     while(1)
     {

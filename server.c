@@ -9,7 +9,7 @@ int main()
 {
 	int server_fd, new_socket, val_read; //File descriptor
 	struct sockaddr_in address; //Se crea una estructura que almacena la direccion del servidor
-	char buffer[1024] = {0}; //Buffer para almacenar los datos que se envian
+	char buffer[4096] = {0}; //Buffer para almacenar los datos que se envian
 
 	//Se usará la tarjeta de Red, con TCP
 	server_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -26,6 +26,8 @@ int main()
 	//Se acepta la conexión del cliente, de cualquier dirección IP
 	new_socket = accept(server_fd, (struct sockaddr *)NULL, NULL);
 
+	val_read = read(new_socket, buffer, 1024); 
+	printf("%s\n", buffer);
 
 	while(1)
 	{
